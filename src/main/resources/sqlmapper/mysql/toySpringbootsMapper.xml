@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="toySpringboots">
+
+    <select id="selectAllFromUSER" parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM USER
+    </select>
+
+    <select id="selectByUID" parameterType="Map" resultType="Map">
+        SELECT * 
+        FROM USER
+        WHERE USER_ID = #{USER_ID}
+    </select>
+
+<update id="updateByUID" parameterType="Map">
+        UPDATE USER 
+            SET
+            PASSWORD = #{PASSWORD}', 
+            PHONE_NUMBER = #{PHONE_NUMBER}, 
+            USER_EMAIL = #{USER_EMAIL}, 
+            ADDRESS = #{ADDRESS}, 
+            ADDRESSADD = #{ADDRESSADD}            
+        WHERE USER_ID = #{USER_ID}
+    </update>
+
+</mapper>
