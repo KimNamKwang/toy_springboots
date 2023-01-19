@@ -33,4 +33,17 @@ public class ToySpringbootsService {
         result = this.getList(dataMap);
         return result;
     }
+
+    public Object insertOne(Object dataMap) {
+        String sqlMapId = "toySpringbots.insertWithUID";
+        Object result = toySpringbootsDao.insert(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object insertOneAndGetList(Object dataMap) {
+        Object result = this.insertOne(dataMap);
+        result = this.getList(dataMap);
+        return result;
+
+    }
 }

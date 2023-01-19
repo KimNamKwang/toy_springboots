@@ -14,13 +14,26 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <c:set var="form_action" value="insert" />
   </c:if>
   <form action="/toySpringboots/${form_action}" method="post">
-    <input type="hidden" name="JOIN_DATE" value="2022-09-15" />
-    <input type="hidden" name="SURVEYED" value="Yes" />
     <div class="form-group form-row">
       <div class="col">
         <label>사용자 ID</label> <input class="form-control" type="text"
         name="USER_ID" value="${resultMap.USER_ID}" required ${form_action ==
         "update" ? "readonly" : ""} />
+        <div class="invalid-tooltip"></div>
+      </div>
+    </div>
+    <div class="form-group form-row">
+      <div class="col">
+        <label>사용자 이름 </label>
+        <input
+          class="form-control"
+          type="text"
+          name="NAME"
+          value="${resultMap.NAME}"
+          placeholder="사용자 이름을 입력하세요"
+          required
+          ${statusDisabled}
+        />
         <div class="invalid-tooltip"></div>
       </div>
     </div>
@@ -32,7 +45,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           type="text"
           name="PASSWORD"
           value="${resultMap.PASSWORD}"
-          placeholder="변경할 비밀번호를 입력하세요"
+          placeholder="사용할 비밀번호를 입력하세요"
           required
           ${statusDisabled}
         />
@@ -47,7 +60,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           type="text"
           name="PHONE_NUMBER"
           value="${resultMap.PHONE_NUMBER}"
-          placeholder="변경할 전화번호를 입력하세요"
+          placeholder="사용할 전화번호를 입력하세요"
           required
           ${statusDisabled}
         />
@@ -62,7 +75,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           type="text"
           name="USER_EMAIL"
           value="${resultMap.USER_EMAIL}"
-          placeholder="변경할 이메일 주소를 입력하세요"
+          placeholder="사용할 이메일 주소를 입력하세요"
           required
           ${statusDisabled}
         />

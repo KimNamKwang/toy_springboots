@@ -26,4 +26,9 @@ public class ToySpringbootsDao {
         return result;
 
     }
+
+    public Object insert(String sqlMapId, Object dataMap) {
+        Object result = sqlSessionTemplate.insert(sqlMapId, dataMap);
+        return result;
+    }
 }

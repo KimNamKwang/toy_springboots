@@ -45,4 +45,18 @@ public class ToySpringbootsController {
         modelAndView.setViewName("toySpringboots/list");
         return modelAndView;
     }
+
+    @RequestMapping(value = { "/form" }, method = RequestMethod.GET)
+    public ModelAndView form(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        modelAndView.setViewName("toySpringboots/edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
+    public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object resultMap = toySpringbootsService.insertOneAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("toySpringboots/list");
+        return modelAndView;
+    }
 }
