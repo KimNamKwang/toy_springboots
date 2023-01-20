@@ -17,7 +17,8 @@
     <update id="updateByUID" parameterType="Map">
         UPDATE USER 
             SET
-            PASSWORD = #{PASSWORD}', 
+            NAME = #{NAME},
+            PASSWORD = #{PASSWORD}, 
             PHONE_NUMBER = #{PHONE_NUMBER}, 
             USER_EMAIL = #{USER_EMAIL}, 
             ADDRESS = #{ADDRESS}, 
@@ -32,4 +33,9 @@
         VALUE (#{NAME},#{USER_ID},#{PASSWORD},#{PHONE_NUMBER},#{USER_EMAIL},
         #{ADDRESS},#{ADDRESSADD},#{JOIN_DATE})
     </insert>
+
+    <delete id="deleteByUID" parameterType="Map">
+        DELETE FROM USER
+        WHERE USER_ID = #{USER_ID}
+    </delete>
 </mapper>

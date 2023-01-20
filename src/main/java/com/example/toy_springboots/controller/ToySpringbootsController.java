@@ -59,4 +59,14 @@ public class ToySpringbootsController {
         modelAndView.setViewName("toySpringboots/list");
         return modelAndView;
     }
+
+    @RequestMapping(value = { "/delete/{uniqueId}" }, method = RequestMethod.POST)
+    public ModelAndView delete(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
+            ModelAndView modelAndView) {
+        params.put("USER_ID", uniqueId);
+        Object resultMap = toySpringbootsService.deleteAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("toySpringboots/list");
+        return modelAndView;
+    }
 }

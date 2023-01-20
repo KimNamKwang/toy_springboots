@@ -23,7 +23,7 @@ public class ToySpringbootsService {
     }
 
     public Object update(Object dataMap) {
-        String sqlMapId = "toySpringbots.updateByUID";
+        String sqlMapId = "toySpringboots.updateByUID";
         Object result = toySpringbootsDao.update(sqlMapId, dataMap);
         return result;
     }
@@ -35,7 +35,7 @@ public class ToySpringbootsService {
     }
 
     public Object insertOne(Object dataMap) {
-        String sqlMapId = "toySpringbots.insertWithUID";
+        String sqlMapId = "toySpringboots.insertWithUID";
         Object result = toySpringbootsDao.insert(sqlMapId, dataMap);
         return result;
     }
@@ -46,4 +46,18 @@ public class ToySpringbootsService {
         return result;
 
     }
+
+    public Object delete(Object dataMap) {
+        String sqlMapId = "toySpringboots.deleteByUID";
+        Object result = toySpringbootsDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+
+    public Object deleteAndGetList(Object dataMap) {
+        Object result = this.delete(dataMap);
+        result = this.getList(dataMap);
+        return result;
+
+    }
+
 }
