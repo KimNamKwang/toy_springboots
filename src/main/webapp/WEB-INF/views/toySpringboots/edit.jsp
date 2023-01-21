@@ -23,7 +23,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
   </head>
   <body style="font-family: 'IBM Plex Sans KR', cursive"  class="bg-secondary bg-opacity-10">
- 
+    <%@ include file= "navbar_login.jsp"  %>
     <main>
       <div class="container">
         <c:set var="form_action" value="update" />
@@ -71,15 +71,23 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   </td>
                 </tr>
                 <tr>
-                  <th>이메일</th>
+                  <th>이메일 *</th>
                   <td class="row d-flex align-items-center">
-                    <%
+                    <input
+                      type="text"
+                      class="form-control w-50"
+                      name="USER_EMAIL"
+                      value="${resultMap.USER_EMAIL}"
+                      placeholder="사용할 이메일을 입력하세요"
+                      required ${statusDisabled}
+                    />
+
+                    <%--
                         String userEmail = ${resultMap.USER_EMAIL};
                         String userEmail1 = userEmail.substring(0, userEmail.indexOf('@'));
                         String userEmail2 = userEmail.substring(userEmail.indexOf('@') + 1, userEmail.length());
-                      %>
-                    <div class="col">
-                      <input
+                        <div class="col">
+                          <input
                         type="text"
                         class="form-control"
                         name="userEmail1"
@@ -95,29 +103,39 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                         name="userEmail2"
                         value="<%= userEmail2 %>"
                         ${statusDisabled}
-                      />
-
-                     
-                    </div>
-                    <div class="col-auto">
-                      <select class="form-select" name="userEmailSelect">
-                        <option value="choice_email">직접입력</option>
-                        <option value="@naver.com">naver.com</option>
-                        <option value="@gmail.com">gmail.com</option>
-                        <option value="@daum.net">daum.net</option>
-                      </select>
-                    </div>
+                        />
+                        
+                        
+                      </div>
+                      <div class="col-auto">
+                        <select class="form-select" name="userEmailSelect">
+                          <option value="choice_email">직접입력</option>
+                          <option value="@naver.com">naver.com</option>
+                          <option value="@gmail.com">gmail.com</option>
+                          <option value="@daum.net">daum.net</option>
+                        </select>
+                      </div>
+                      --%>
                   </td>
                 </tr>
                 <tr>
                   <th>연락처 *</th>
                   <td class="row">
-                    <%
+                    <input
+                    type="text"
+                    class="form-control w-50"
+                    name="PHONE_NUMBER"
+                    value="${resultMap.PHONE_NUMBER}"
+                    placeholder="사용할 전화번호를 입력하세요"
+                    required ${statusDisabled}
+                  />
+
+
+                    <%--
                     String phone_number = ${resultMap.PHONE_NUMBER};
                     String phoneFirst = phone_number.substring(0, phone_number.indexOf('-'));
                     String phoneSecond = phone_number.substring(4, phone_number.indexOf('-', 4));
                     String phoneThird = phone_number.substring(9, phone_number.length());          
-                    %>
                     <div class="col">
                       <select class="form-select" name="userPhoneFirst">
                         <option value="010">010</option>
@@ -148,6 +166,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                         ${statusDisabled}
                       />
                     </div>
+                    --%>
                   </td>
                 </tr>
                 <tr>
@@ -156,7 +175,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                     <input
                       type="text"
                       class="form-control"
-                      name="userAddress"
+                      name="ADDRESS"
                       value="${resultMap.ADDRESS}"
                       ${statusDisabled}
                     />
@@ -165,7 +184,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                         <input
                           type="text"
                           class="col form-control"
-                          name="userAddressAdd"
+                          name="ADDRESSADD"
                           value="${resultMap.ADDRESSADD}"
                           ${statusDisabled}
                         />
@@ -174,15 +193,32 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                     </div>
                   </td>
                 </tr>
+                <tr>
+                  <th>가입일자 </th>
+                  <td>
+                    <input class="form-control w-50" type="date"
+                    name="JOIN_DATE" value="${resultMap.JOIN_DATE}" ${statusDisabled} />
+                    <div class="invalid-tooltip"></div>
+                  </td>
+                </tr>
+                <tr>
+                  <th>설문여부 </th>
+                  <td>
+                    <input class="form-check-input" type="checkbox"
+                    name="SURVEYED" value="${resultMap.SURVEYED}" ${statusDisabled} />
+                    <div class="invalid-tooltip"></div>
+                  </td>
+                </tr>
               </table>
             </div>
             <div class="text-center">
-              <button class="btn btn-lg btn-outline-dark fw-bold w-25 m-4" type="submit">저장</button>
+              <button class="btn btn-lg btn-outline-dark fw-bold w-25 m-4" type="submit">${form_action}</button>
             </div>
           </div>
         </div>
       </form>
     </main>
+    <%@ include file= "footer.jsp"  %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

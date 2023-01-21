@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.example.toy_springboots.service.ToySpringbootsService;
+import com.mysql.cj.protocol.Message;
 
 @Controller
 @RequestMapping(value = "/toySpringboots")
@@ -60,7 +61,7 @@ public class ToySpringbootsController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/delete/{uniqueId}" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/delete/{uniqueId}" }, method = { RequestMethod.POST, RequestMethod.GET })
     public ModelAndView delete(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
             ModelAndView modelAndView) {
         params.put("USER_ID", uniqueId);

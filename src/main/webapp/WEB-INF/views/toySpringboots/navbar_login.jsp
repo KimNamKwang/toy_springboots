@@ -1,4 +1,5 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+
 <!-- ----------여기부터 header------------ -->
 <nav class="navbar bg-dark navbar-dark fixed-top navbar-expand-sm">
   <div class="container-fluid">

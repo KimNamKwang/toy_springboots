@@ -19,14 +19,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
     <link
       href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap"
       rel="stylesheet"
-    />
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
-    <body style="font-family: 'IBM Plex Sans KR', cursive" class="bg-secondary bg-opacity-10">
-      
+      />
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap" rel="stylesheet">
+      <body style="font-family: 'IBM Plex Sans KR', cursive" class="bg-secondary bg-opacity-10">
+        <%@ include file= "navbar_login.jsp"  %>
       <main>
       <div class="container">
         <div class="fs-4 fw-bold pb-3 pt-5 mt-4">👥 회원 관리</div>
-        <div class="text-secondary">총 ?명</div>
+        <div class="text-secondary">총 ${resultMap.size()}명</div>
         <div class="bg-light ps-4 pe-4 pb-1 mt-2 mb-2">
           <table class="table text-center border-none">
             <thead class="border-bottom border-3">
@@ -52,7 +52,12 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                     href="/toySpringboots/edit/${resultData.USER_ID}"
                     >수정</a
                     >
-                    <button class="btn btn btn-outline-dark btn-sm">탈퇴</button>
+                    
+                    <a
+                    class="btn btn btn-outline-dark btn-sm"
+                    href="/toySpringboots/delete/${resultData.USER_ID}"
+                    >탈퇴</a
+                    >
                   </td>
                 </tr>
               </c:forEach>
@@ -66,7 +71,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
         </div>
       </div>
     </main>
-    
+    <%@ include file= "footer.jsp"  %>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"

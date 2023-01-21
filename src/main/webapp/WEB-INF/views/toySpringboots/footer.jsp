@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <!-- -----------여기서부터 footer입니다---------- -->
 <nav class="navbar bg-dark navbar-dark fixed-bottom">
   <div class="container-fluid justify-content-center">

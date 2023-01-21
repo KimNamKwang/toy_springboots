@@ -22,7 +22,8 @@
             PHONE_NUMBER = #{PHONE_NUMBER}, 
             USER_EMAIL = #{USER_EMAIL}, 
             ADDRESS = #{ADDRESS}, 
-            ADDRESSADD = #{ADDRESSADD}            
+            ADDRESSADD = #{ADDRESSADD},
+            JOIN_DATE = #{JOIN_DATE}            
             WHERE USER_ID = #{USER_ID}
     </update>
 
