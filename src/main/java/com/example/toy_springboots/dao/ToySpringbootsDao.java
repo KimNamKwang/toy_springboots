@@ -38,7 +38,7 @@ public class ToySpringbootsDao {
     }
 
     public Object login(String sqlMapId, Object dataMap) {
-        Object result = sqlSessionTemplate.delete(sqlMapId, dataMap);
+        Object result = sqlSessionTemplate.selectList(sqlMapId, dataMap);
         return result;
     }
 }

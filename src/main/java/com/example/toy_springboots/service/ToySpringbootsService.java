@@ -62,7 +62,7 @@ public class ToySpringbootsService {
 
     public Object login(Object dataMap) {
         String sqlMapId = "toySpringboots.selectByUID";
-        Object result = toySpringbootsDao.delete(sqlMapId, dataMap);
+        Object result = toySpringbootsDao.login(sqlMapId, dataMap);
         return result;
     }
 
