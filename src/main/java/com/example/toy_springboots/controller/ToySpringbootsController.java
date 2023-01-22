@@ -20,7 +20,15 @@ public class ToySpringbootsController {
     @Autowired
     ToySpringbootsService toySpringbootsService;
 
-    @RequestMapping(value = { "/list", "/", "" }, method = RequestMethod.GET)
+    @RequestMapping(value = { "/main" }, method = { RequestMethod.GET, RequestMethod.POST })
+    public ModelAndView main(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
+        Object resultMap = toySpringbootsService.getList(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("toySpringboots/main_post");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/list" }, method = RequestMethod.GET)
     public ModelAndView list(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         Object resultMap = toySpringbootsService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
@@ -66,6 +74,15 @@ public class ToySpringbootsController {
             ModelAndView modelAndView) {
         params.put("USER_ID", uniqueId);
         Object resultMap = toySpringbootsService.deleteAndGetList(params);
+        modelAndView.addObject("resultMap", resultMap);
+        modelAndView.setViewName("toySpringboots/list");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = { "/login" }, method = RequestMethod.POST)
+    public ModelAndView login(@RequestParam Map<String, Object> params, @PathVariable String uniqueId,
+            ModelAndView modelAndView) {
+        Object resultMap = toySpringbootsService.login(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("toySpringboots/list");
         return modelAndView;

@@ -205,7 +205,14 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                   <th>설문여부 </th>
                   <td>
                     <input class="form-check-input" type="checkbox"
-                    name="SURVEYED" value="${resultMap.SURVEYED}" ${statusDisabled} />
+                    name="SURVEYED" value="${resultMap.SURVEYED}"
+                    ${resultMap.SURVEYED ==
+                      "Y" ? "checked" : ""}
+                    ${statusDisabled} />
+                    <label for="SURVEYED" class="form-check-label"
+                    >예</label
+                  >
+                    
                     <div class="invalid-tooltip"></div>
                   </td>
                 </tr>

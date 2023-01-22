@@ -60,4 +60,10 @@ public class ToySpringbootsService {
 
     }
 
+    public Object login(Object dataMap) {
+        String sqlMapId = "toySpringboots.selectByUID";
+        Object result = toySpringbootsDao.delete(sqlMapId, dataMap);
+        return result;
+    }
+
 }
