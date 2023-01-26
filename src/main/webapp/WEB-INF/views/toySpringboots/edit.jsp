@@ -216,6 +216,19 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
                     <div class="invalid-tooltip"></div>
                   </td>
                 </tr>
+                <tr>
+                  <th>
+                    파일첨부
+                  </th>
+                  <td>
+                    <div class="form-group form-row">
+                      <input type="file" name="file_first" class="form-control">
+                      </div>
+                    <div class="form-group form-row mt-2">
+                      <input type="file" name="file_second" class="form-control">
+                      </div>
+                  </td>
+                </tr>
               </table>
             </div>
             <div class="text-center">
