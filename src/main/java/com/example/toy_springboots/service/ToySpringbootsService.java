@@ -10,6 +10,9 @@ public class ToySpringbootsService {
     @Autowired
     ToySpringbootsDao toySpringbootsDao;
 
+    @Autowired
+    AttachFileService attachFileService;
+
     public Object getList(Object dataMap) {
         String sqlMapId = "toySpringboots.selectAllFromUSER";
         Object result = toySpringbootsDao.getList(sqlMapId, dataMap);
@@ -42,6 +45,15 @@ public class ToySpringbootsService {
 
     public Object insertOneAndGetList(Object dataMap) {
         Object result = this.insertOne(dataMap);
+        result = this.getList(dataMap);
+        return result;
+
+    }
+
+    public Object insertWithFilesAndGetList(Object dataMap) {
+        // insert files
+        Object result = attachFileService.insertMulti(dataMap);
+        result = this.insertOne(dataMap);
         result = this.getList(dataMap);
         return result;
 

@@ -73,15 +73,16 @@ public class ToySpringbootsController {
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
-    public ModelAndView insert(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
-        Object resultMap = toySpringbootsService.insertOneAndGetList(params);
-        modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("toySpringboots/list");
-        return modelAndView;
-    }
+    // @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
+    // public ModelAndView insert(@RequestParam Map<String, Object> params,
+    // ModelAndView modelAndView) {
+    // Object resultMap = toySpringbootsService.insertOneAndGetList(params);
+    // modelAndView.addObject("resultMap", resultMap);
+    // modelAndView.setViewName("toySpringboots/list");
+    // return modelAndView;
+    // }
 
-    @RequestMapping(value = { "/insertMulti" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/insert" }, method = RequestMethod.POST)
     public ModelAndView insert(MultipartHttpServletRequest multipartHttpServletRequest,
             @RequestParam Map<String, Object> params, ModelAndView modelAndView)
             throws IllegalStateException, IOException {
@@ -98,7 +99,7 @@ public class ToySpringbootsController {
 
         while (fileNames.hasNext()) {
             String fileName = fileNames.next();
-            MultipartFile multipartFile = multipartHttpServletRequest.getFile("file_first");
+            MultipartFile multipartFile = multipartHttpServletRequest.getFile(fileName);
             String originalFileName = multipartFile.getOriginalFilename();
             String storePathFileName = storePath + originalFileName;
             multipartFile.transferTo(new File(storePathFileName));
@@ -114,8 +115,10 @@ public class ToySpringbootsController {
 
             attachFiles.add(attachFile);
         }
+        params.put("attachFiles", attachFiles);
 
-        Object resultMap = toySpringbootsService.insertOneAndGetList(params);
+        Object resultMap = toySpringbootsService.insertWithFilesAndGetList(params);
+
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("toySpringboots/list");
         return modelAndView;
