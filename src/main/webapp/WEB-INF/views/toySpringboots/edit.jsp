@@ -30,7 +30,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
         <c:if test="${empty resultMap}">
           <c:set var="form_action" value="insert" />
         </c:if>
-        <form action="/toySpringboots/${form_action}" method="post">
+        <form action="/toySpringboots/${form_action}" method="post" enctype="multipart/form-data">
 
         <div class="fs-4 fw-bold pb-3 pt-5 mt-4">👤 회원 정보 조회 / 수정</div>
         <div
