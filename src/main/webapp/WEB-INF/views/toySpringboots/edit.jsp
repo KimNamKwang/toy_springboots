@@ -31,7 +31,9 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
           <c:set var="form_action" value="insert" />
         </c:if>
         <form action="/toySpringboots/${form_action}" method="post" enctype="multipart/form-data">
-
+          <input type="hidden" name="REGISTER_SEQ" value="UUID-1111-1111111" >
+          <input type="hidden" name="MODIFIER_SEQ" value="UUID-1111-1111111" >
+          <input type="hidden" name="PARENT_COMMON_CODE_ID" value="${resultMap.PARENT_COMMON_CODE_ID}">
         <div class="fs-4 fw-bold pb-3 pt-5 mt-4">👤 회원 정보 조회 / 수정</div>
         <div
           class="bg-light ps-4 pe-4 pb-1 mt-2"

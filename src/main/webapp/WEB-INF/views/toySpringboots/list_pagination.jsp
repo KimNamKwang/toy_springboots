@@ -25,9 +25,10 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
         <%@ include file= "navbar_login.jsp"  %>
       <main>
       <div class="container">
+        <c:set var="_pagination" value="${resultMap.paginations}" />
         <div class="fs-4 fw-bold pb-3 pt-5 mt-4">👥 회원 관리</div>
-        <div class="text-secondary">총 ${resultMap.size()}명</div>
-        <div class="bg-light ps-4 pe-4 pb-1 mt-2 mb-2">
+        <div class="text-secondary">총 ${_pagination.totalCount}명</div>
+        <div class="bg-light ps-4 pe-4 pb-1 m t-2 mb-2">
           <table class="table text-center border-none">
             <thead class="border-bottom border-3">
               <tr>
@@ -73,7 +74,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
       <nav aria-label="Page navigation example">
         <c:set var="_pagination" value="${resultMap.paginations}" />
-        <ul class="pagination">
+        <ul class="pagination justify-content-center">
           <li class="page-item">
             <a class="page-link" href="#" aria-label="Previous">
               <span aria-hidden="true">&laquo;</span>
@@ -86,7 +87,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
             end="${_pagination.blockEnd}"
           >
             <li class="page-item">
-              <a class="page-link" href="/commonCodeOur/list_pagination/${i}"
+              <a class="page-link" href="/toySpringboots/list_pagination/${i}"
                 >${i}</a
               >
             </li>

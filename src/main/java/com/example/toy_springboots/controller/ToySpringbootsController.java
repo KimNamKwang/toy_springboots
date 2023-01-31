@@ -118,7 +118,7 @@ public class ToySpringbootsController {
             attachFile = new HashMap<>();
             attachFile.put("ATTACHFILE_SEQ", commonUtils.getUniqueSequence());
             /* 랜덤으로 생성 */
-            attachFile.put("SOURCE_UNIQUE_SEQ", params.get("COMMON_CODE_ID"));
+            attachFile.put("SOURCE_UNIQUE_SEQ", params.get("USER_ID"));
             attachFile.put("ORGINALFILE_NAME", originalFileName);
             attachFile.put("PHYSICALFILE_NAME", physicalFileName);
             attachFile.put("REGISTER_SEQ", params.get("REGISTER_SEQ"));

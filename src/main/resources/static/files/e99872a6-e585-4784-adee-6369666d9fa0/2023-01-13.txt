@@ -1,0 +1,16 @@
+BoardController.java
+view() {
+....
+BoardBean boardBean = dataInfors.getDataWithBoardBean(uid);
+...
+}
+
+DataInfors.java
+BoardBean getDataWithBoardBean(uid){
+ArrayList<BoardBean> boardBeans = dataInfors.getDataListWithBoardBean();
+for(int i=0; i<boardBeans.size(); i++){
+            if(boardBeans.get(i).getTitle().equals(uid)) 
+		boardBean.put(boardBeans.get(i));
+        }
+ return boardBean;
+}
