@@ -1,8 +1,12 @@
 package com.example.toy_springboots.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.toy_springboots.Paginations;
 import com.example.toy_springboots.dao.ToySpringbootsDao;
 
 @Service
@@ -34,6 +38,23 @@ public class ToySpringbootsService {
     public Object updateAndGetList(Object dataMap) {
         Object result = this.update(dataMap);
         result = this.getList(dataMap);
+        return result;
+    }
+
+    public Object getListWithPagination(Object dataMap) {
+        Map<String, Object> result = new HashMap<String, Object>();
+        int totalCount = (int) this.getTotal(dataMap);
+        int currentPage = (int) ((HashMap<String, Object>) dataMap).get("currentPage");
+        Paginations paginations = new Paginations(totalCount, currentPage);
+        result.put("paginations", paginations);
+        ((HashMap<String, Object>) dataMap).put("pageBegin", paginations.getPageBegin());
+        result.put("resultList", this.getList(dataMap));
+        return result;
+    }
+
+    public Object getTotal(Object dataMap) {
+        String sqlMapId = "toySpringboots.selectTotal";
+        Object result = toySpringbootsDao.getOne(sqlMapId, dataMap);
         return result;
     }
 

@@ -12,5 +12,10 @@
     <div>
       <a href="/toySpringboots/list">toySpringboots/list.jsp</a>
     </div>
+    <div>
+      <a href="/toySpringboots/list_pagination/1"
+        >toySpringboots/list_pagination.jsp</a
+      >
+    </div>
   </body>
 </html>

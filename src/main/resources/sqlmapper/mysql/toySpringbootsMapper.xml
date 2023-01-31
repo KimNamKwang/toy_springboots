@@ -6,12 +6,21 @@
     <select id="selectAllFromUSER" parameterType="Map" resultType="Map">
         SELECT * 
         FROM USER
+        <if test="pageScale != null">
+        ORDER BY NAME
+        LIMIT #{pageBegin}, #{pageScale}
+        </if>
     </select>
 
     <select id="selectByUID" parameterType="Map" resultType="Map">
         SELECT * 
         FROM USER
         WHERE USER_ID = #{USER_ID}
+    </select>
+
+    <select id="selectTotal" parameterType="Map" resultType="int">
+       SELECT count(*) as cnt 
+       FROM USER
     </select>
 
     <update id="updateByUID" parameterType="Map">
