@@ -54,7 +54,6 @@ public class ToySpringbootsController {
         params.put("pageScale", 10);
         params.put("currentPage", Integer.parseInt(currentPage));
         Object resultMap = toySpringbootsService.getListWithPagination(params);
-        // resultMap = toySpringbootsService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
         modelAndView.setViewName("toySpringboots/list_pagination");
         return modelAndView;

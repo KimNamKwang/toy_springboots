@@ -39,7 +39,7 @@ uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
               </tr>
             </thead>
             <tbody class="">
-              <c:forEach items="${resultMap}" var="resultData" varStatus="loop">
+              <c:forEach items="${resultMap.resultList}" var="resultData" varStatus="loop">
                 <tr>
                   <td>${resultData.NAME}</td>
                   <td>${resultData.USER_ID}</td>                  
