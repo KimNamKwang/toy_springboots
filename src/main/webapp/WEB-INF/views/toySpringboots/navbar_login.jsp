@@ -3,7 +3,7 @@
 <!-- ----------여기부터 header------------ -->
 <nav class="navbar bg-dark navbar-dark fixed-top navbar-expand-sm">
   <div class="container-fluid">
-    <a href="/index.jsp" class="navbar-brand ms-5">
+    <a href="/toy_main" class="navbar-brand ms-5">
       <div style="font-family: 'Zen Dots', cursive" class="text-white">
         Holy Fitness
       </div>

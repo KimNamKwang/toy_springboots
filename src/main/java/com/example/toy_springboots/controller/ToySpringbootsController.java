@@ -32,11 +32,11 @@ public class ToySpringbootsController {
     @Autowired
     CommonUtils commonUtils;
 
-    @RequestMapping(value = { "/main" }, method = { RequestMethod.GET, RequestMethod.POST })
+    @RequestMapping(value = { "/toy_main" }, method = { RequestMethod.GET, RequestMethod.POST })
     public ModelAndView main(@RequestParam Map<String, Object> params, ModelAndView modelAndView) {
         Object resultMap = toySpringbootsService.getList(params);
         modelAndView.addObject("resultMap", resultMap);
-        modelAndView.setViewName("toySpringboots/main_post");
+        modelAndView.setViewName("toySpringboots/toy_main");
         return modelAndView;
     }
 
